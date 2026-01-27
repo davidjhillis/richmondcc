@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"="width=device-width, initial-scale=1.0">
+  <title>Richmond Community College | Your Path to Success Starts Here</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f4',
+              100: '#fce7eb',
+              200: '#f9d0d8',
+              300: '#f4a8b8',
+              400: '#ed7691',
+              500: '#e24968',
+              600: '#ce2d54',
+              700: '#9C1C32',  // Main brand color
+              800: '#8a1a2e',
+              900: '#751829',
+            }
+            // Using Tailwind's default sky and slate colors
+          },
+          fontFamily: {
+            'serif': ['"Crimson Text"', 'Georgia', 'serif'],
+            'sans': ['"Open Sans"', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: {
+            'content': '1280px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js Collapse Plugin -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Alpine.js Core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    [x-cloak] { display: none !important; }
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; }
+  </style>
+</head>
+<body class="antialiased" x-data>
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <!-- Utility Nav -->
+    <div class="bg-brand-700 text-white text-sm">
+      <div class="container mx-auto px-4 py-2.5 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <span class="flex items-center">
+            <i data-lucide="phone" class="w-4 h-4 mr-1.5"></i>
+            (910) 410-1700
+          </span>
+          <span class="hidden md:flex items-center">
+            <i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i>
+            Hamlet, NC
+          </span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-brand-200 transition-colors font-medium">Apply Now</a>
+          <a href="#" class="hover:text-brand-200 transition-colors">Pay Tuition</a>
+          <a href="#" class="hover:text-brand-200 transition-colors">Self-Service</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="container mx-auto px-4 py-5">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="/index.html" class="flex items-center">
+          <img src="https://richmondcc.edu/sites/all/themes/richmond/images/logo-new.png"
+               alt="Richmond Community College"
+               class="h-16 w-auto">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8" x-data="{ activeMenu: null, closeTimeout: null }">
+
+          <!-- Admissions Dropdown -->
+          <div @mouseenter="clearTimeout(closeTimeout); activeMenu = 'admissions'"
+               @mouseleave="closeTimeout = setTimeout(() => { activeMenu = null }, 200)"
+               class="relative">
+            <button class="text-slate-700 hover:text-brand-700 font-semibold transition-colors py-2 flex items-center">
+              Admissions
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <div x-show="activeMenu === 'admissions'"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl bg-white shadow-xl rounded-b-lg pt-2 p-8 grid grid-cols-3 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Transfer to RichmondCC
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    How To Apply
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Credit for Prior Learning
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Online Students
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    International Students
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Financial Aid
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Tuition and Fees
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Pay Tuition
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    RichmondCC Guarantee
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Scholarships
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Compare and Save
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Placement Testing
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    CLEP
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    New Student Orientation
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Academics Dropdown -->
+          <div @mouseenter="clearTimeout(closeTimeout); activeMenu = 'academics'"
+               @mouseleave="closeTimeout = setTimeout(() => { activeMenu = null }, 200)"
+               class="relative">
+            <button class="text-slate-700 hover:text-brand-700 font-semibold transition-colors py-2 flex items-center">
+              Academics
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <div x-show="activeMenu === 'academics'"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl bg-white shadow-xl rounded-b-lg pt-2 p-8 grid grid-cols-3 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Dual Enrollment
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Programs
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Course Catalog
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Academic Calendar
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Class Schedules
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Course Descriptions
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    State Authorization
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Adult Education
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Access to Achievement
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Advising
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Grading Policy
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Archives
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Student Services Dropdown -->
+          <div @mouseenter="clearTimeout(closeTimeout); activeMenu = 'services'"
+               @mouseleave="closeTimeout = setTimeout(() => { activeMenu = null }, 200)"
+               class="relative">
+            <button class="text-slate-700 hover:text-brand-700 font-semibold transition-colors py-2 flex items-center">
+              Student Services
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <div x-show="activeMenu === 'services'"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl bg-white shadow-xl rounded-b-lg pt-2 p-8 grid grid-cols-3 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Calendar
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Online Bookstore
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Career & Transfer Advising
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Scotland County Campus
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Complaints
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Counseling Services
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Building Brighter Futures
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Disability Services
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Distance Learning Services
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Graduation Information
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Learning Resources Center
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Registrar
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    RichmondCC Cafe
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Self-Service
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Student Handbook
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Student Consumer Info
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Student Withdrawals
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Student Supports
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Transcript Request
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Veteran Services
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- About Us Dropdown -->
+          <div @mouseenter="clearTimeout(closeTimeout); activeMenu = 'about'"
+               @mouseleave="closeTimeout = setTimeout(() => { activeMenu = null }, 200)"
+               class="relative">
+            <button class="text-slate-700 hover:text-brand-700 font-semibold transition-colors py-2 flex items-center">
+              About Us
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <div x-show="activeMenu === 'about'"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl bg-white shadow-xl rounded-b-lg pt-2 p-8 grid grid-cols-3 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Why Attend RCC?
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Continuing Education
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    FAQs
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    President's Message
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Mission and Vision
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Small Business Center
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Cole Auditorium
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Community
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    RichmondCC Foundation
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Cyber Center
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    News
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    RichmondCC Connects
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Torch Talk
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Student Life
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Alumni
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Our Heroes' Tree®
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Campus Security
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Board of Trustees
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Accreditation
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    RichmondCC's QEP
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contact Us Dropdown -->
+          <div @mouseenter="clearTimeout(closeTimeout); activeMenu = 'contact'"
+               @mouseleave="closeTimeout = setTimeout(() => { activeMenu = null }, 200)"
+               class="relative">
+            <button class="text-slate-700 hover:text-brand-700 font-semibold transition-colors py-2 flex items-center">
+              Contact Us
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <div x-show="activeMenu === 'contact'"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-3xl bg-white shadow-xl rounded-b-lg pt-2 p-8 grid grid-cols-2 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Visit Us
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Maps
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Help Desk
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Employment
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <ul class="space-y-2.5">
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Manuals & Documents
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Directory
+                  </a></li>
+                  <li><a href="#" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Human Resources
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </nav>
+
+        <!-- Search & Mobile Menu -->
+        <div class="flex items-center space-x-4">
+          <button @click="$dispatch('open-search')" class="text-slate-600 hover:text-brand-700 transition-colors">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
+          <button class="lg:hidden text-slate-600 hover:text-brand-700 transition-colors">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER -->
+  <section
+    x-data="{
+      currentSlide: 0,
+      slides: [
+        {
+          image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920&h=650&fit=crop',
+          badge: 'Local College, Big Impact',
+          title: 'Building Brighter',
+          titleAccent: 'Futures',
+          description: 'Personalized, quality instruction at a manageable cost. Start your career, finish your degree, or gain new skills at Richmond Community College.',
+          cta1: 'Get Started',
+          cta1Link: '#',
+          cta2: 'View Programs',
+          cta2Link: '#'
+        },
+        {
+          image: 'https://images.pexels.com/photos/5940831/pexels-photo-5940831.jpeg?auto=compress&cs=tinysrgb&w=1920&h=650&fit=crop',
+          badge: 'Career & Technical Training',
+          title: 'Skills That',
+          titleAccent: 'Get You Hired',
+          description: 'Industry certifications, hands-on training, and workforce development programs designed to meet local employer needs.',
+          cta1: 'Explore Careers',
+          cta1Link: '#',
+          cta2: 'Workforce Training',
+          cta2Link: '#'
+        },
+        {
+          image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=1920&h=650&fit=crop',
+          badge: 'Affordable & Accessible',
+          title: 'Quality Education',
+          titleAccent: 'Within Reach',
+          description: 'Low tuition, over 100 scholarships annually, and flexible class schedules. Your education shouldn\'t break the bank.',
+          cta1: 'Financial Aid',
+          cta1Link: '#',
+          cta2: 'Scholarships',
+          cta2Link: '#'
+        },
+        {
+          image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920&h=650&fit=crop',
+          badge: 'Transfer & University Partnerships',
+          title: 'Start Here,',
+          titleAccent: 'Transfer Anywhere',
+          description: 'Save money and stay close to home. Complete your first two years at Richmond CC, then transfer to a four-year university.',
+          cta1: 'Transfer Info',
+          cta1Link: '#',
+          cta2: 'Partner Schools',
+          cta2Link: '#'
+        }
+      ],
+      autoRotate: null,
+      startAutoRotate() {
+        this.autoRotate = setInterval(() => {
+          this.nextSlide();
+        }, 6000);
+      },
+      stopAutoRotate() {
+        if (this.autoRotate) {
+          clearInterval(this.autoRotate);
+        }
+      },
+      goToSlide(index) {
+        this.currentSlide = index;
+        this.stopAutoRotate();
+        this.startAutoRotate();
+      },
+      nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+      },
+      prevSlide() {
+        this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+      }
+    }"
+    x-init="startAutoRotate()"
+    @mouseenter="stopAutoRotate()"
+    @mouseleave="startAutoRotate()"
+    class="relative h-[650px] flex items-center justify-center text-white overflow-hidden">
+
+    <!-- Slides -->
+    <template x-for="(slide, index) in slides" :key="index">
+      <div
+        x-show="currentSlide === index"
+        x-transition:enter="transition ease-out duration-1000"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-500"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="absolute inset-0">
+
+        <!-- Background Image with Overlay (Enhanced for Accessibility) -->
+        <img :src="slide.image"
+             alt="Hero slide"
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-slate-700/70"></div>
+
+        <!-- Content -->
+        <div class="absolute inset-0 flex items-center">
+          <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+              <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-white/30 shadow-lg">
+                <i data-lucide="award" class="w-4 h-4 inline mr-2"></i>
+                <span x-text="slide.badge"></span>
+              </div>
+              <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
+                <span x-text="slide.title"></span><br>
+                <span class="text-brand-200" x-text="slide.titleAccent"></span>
+              </h1>
+              <p class="text-xl md:text-2xl mb-10 text-white leading-relaxed drop-shadow-md" x-text="slide.description"></p>
+              <div class="flex flex-wrap gap-4">
+                <a :href="slide.cta1Link" class="bg-white text-brand-700 hover:bg-brand-50 px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center">
+                  <span x-text="slide.cta1"></span>
+                  <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                </a>
+                <a :href="slide.cta2Link" class="bg-brand-600 hover:bg-brand-500 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 inline-flex items-center">
+                  <span x-text="slide.cta2"></span>
+                  <i data-lucide="graduation-cap" class="w-5 h-5 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Navigation Arrows -->
+    <button
+      @click="prevSlide(); stopAutoRotate(); startAutoRotate();"
+      aria-label="Previous slide"
+      class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-sm text-white p-4 rounded-full transition-all hover:scale-110 shadow-xl">
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+
+    <button
+      @click="nextSlide(); stopAutoRotate(); startAutoRotate();"
+      aria-label="Next slide"
+      class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-sm text-white p-4 rounded-full transition-all hover:scale-110 shadow-xl">
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Dot Navigation -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3" role="tablist" aria-label="Slide navigation">
+      <template x-for="(slide, index) in slides" :key="index">
+        <button
+          @click="goToSlide(index)"
+          :aria-label="'Go to slide ' + (index + 1)"
+          :aria-current="currentSlide === index ? 'true' : 'false'"
+          :class="currentSlide === index ? 'bg-white w-12 shadow-lg' : 'bg-white/50 w-3 hover:bg-white/70'"
+          class="h-3 rounded-full transition-all duration-300"
+          role="tab">
+        </button>
+      </template>
+    </div>
+
+  </section>
+
+  <!-- FEATURED CARDS - WHO ARE YOU? -->
+  <section class="py-20 bg-slate-50">
+
+    <div class="container mx-auto px-4">
+
+      <!-- Section Heading -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Who Are You?
+        </h2>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          Find the resources and information designed specifically for your journey at Richmond CC.
+        </p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+        <!-- Card 1: Prospective Students -->
+        <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Prospective Students"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="user-plus" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Future Students
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Explore programs, apply for admission, and discover financial aid opportunities.
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Get Started
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2: Current Students -->
+        <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Current Students"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-200 text-brand-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Current Students
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Access your courses, schedules, grades, and student resources all in one place.
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Student Portal
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 3: Faculty & Staff -->
+        <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Faculty & Staff"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-300 text-brand-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Faculty & Staff
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Access employee resources, professional development, and administrative tools.
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Employee Portal
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 4: Community & Workforce -->
+        <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Community & Workforce"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Workforce Training
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Continuing education, professional certifications, and customized training solutions.
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Explore Options
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FAST FACTS -->
+  <section class="py-20 bg-brand-700 text-white relative overflow-hidden">
+
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Richmond CC By the Numbers</h2>
+        <p class="text-brand-100 text-xl">Excellence in education, affordability in action</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
+
+        <!-- Fact 1 -->
+        <div class="group">
+          <div class="text-6xl md:text-7xl font-bold mb-3 text-white group-hover:scale-110 transition-transform">60<span class="text-brand-300">+</span></div>
+          <div class="text-brand-100 font-semibold text-lg uppercase tracking-wide">Academic Programs</div>
+        </div>
+
+        <!-- Fact 2 -->
+        <div class="group">
+          <div class="text-6xl md:text-7xl font-bold mb-3 text-white group-hover:scale-110 transition-transform"><span class="text-brand-300">$</span>76</div>
+          <div class="text-brand-100 font-semibold text-lg uppercase tracking-wide">Per Credit Hour</div>
+        </div>
+
+        <!-- Fact 3 -->
+        <div class="group">
+          <div class="text-6xl md:text-7xl font-bold mb-3 text-white group-hover:scale-110 transition-transform">15<span class="text-brand-300">:</span>1</div>
+          <div class="text-brand-100 font-semibold text-lg uppercase tracking-wide">Student-Faculty Ratio</div>
+        </div>
+
+        <!-- Fact 4 -->
+        <div class="group">
+          <div class="text-6xl md:text-7xl font-bold mb-3 text-white group-hover:scale-110 transition-transform">95<span class="text-brand-300">%</span></div>
+          <div class="text-brand-100 font-semibold text-lg uppercase tracking-wide">Job Placement</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="py-24 bg-gradient-to-br from-slate-50 via-brand-50 to-sky-50 relative overflow-hidden">
+
+    <!-- Decorative Background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-10 left-10 w-64 h-64 bg-brand-700 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-sky-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          Ready to Transform Your Future?
+        </h2>
+        <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+          Join thousands of students who have launched successful careers through Richmond Community College.
+          Take the first step toward achieving your goals today.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="#" class="bg-brand-700 hover:bg-brand-800 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center">
+            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i>
+            Apply Now
+          </a>
+          <a href="#" class="bg-white hover:bg-slate-50 text-brand-700 px-10 py-4 rounded-lg font-bold text-lg transition-all border-2 border-brand-700 hover:border-brand-800 inline-flex items-center">
+            <i data-lucide="handshake" class="w-5 h-5 mr-2"></i>
+            Financial Aid
+          </a>
+          <a href="#" class="bg-brand-600 hover:bg-brand-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center">
+            <i data-lucide="phone-call" class="w-5 h-5 mr-2"></i>
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- NEWS & EVENTS -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">News & Events</h2>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          Stay connected with what's happening at Richmond CC
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+        <!-- News Section -->
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-brand-700 flex items-center">
+              <i data-lucide="newspaper" class="w-6 h-6 mr-2 text-brand-600"></i>
+              Latest News
+            </h3>
+            <a href="#" class="text-brand-700 hover:text-brand-800 font-semibold text-sm flex items-center">
+              View All
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div class="space-y-6">
+            <!-- News Item 1 -->
+            <article class="border-l-4 border-brand-700 pl-4 hover:border-brand-500 transition-colors">
+              <time class="text-sm text-slate-500 font-medium">January 15, 2026</time>
+              <h4 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                <a href="#" class="hover:text-brand-700 transition-colors">Spring Semester Registration Now Open</a>
+              </h4>
+              <p class="text-slate-600 leading-relaxed">
+                Plan your path to success! Register now for spring classes with flexible day, evening, and online options available.
+              </p>
+            </article>
+
+            <!-- News Item 2 -->
+            <article class="border-l-4 border-brand-700 pl-4 hover:border-brand-500 transition-colors">
+              <time class="text-sm text-slate-500 font-medium">January 10, 2026</time>
+              <h4 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                <a href="#" class="hover:text-brand-700 transition-colors">New Allied Health Building Groundbreaking</a>
+              </h4>
+              <p class="text-slate-600 leading-relaxed">
+                Richmond CC breaks ground on state-of-the-art Allied Health facility to expand nursing and medical programs.
+              </p>
+            </article>
+
+            <!-- News Item 3 - Featured -->
+            <article class="border-l-4 border-brand-700 pl-4 hover:border-brand-500 transition-colors">
+              <div class="flex items-center gap-2 mb-1">
+                <time class="text-sm text-slate-500 font-medium">January 5, 2026</time>
+                <span class="bg-sky-100 text-sky-700 text-xs font-bold px-2 py-0.5 rounded-full">Featured</span>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                <a href="#" class="hover:text-brand-700 transition-colors">100+ Scholarships Available for 2026</a>
+              </h4>
+              <p class="text-slate-600 leading-relaxed">
+                Apply now for over $250,000 in scholarship opportunities to help fund your education at Richmond CC.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Events Section -->
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-brand-700 flex items-center">
+              <i data-lucide="calendar" class="w-6 h-6 mr-2 text-brand-600"></i>
+              Upcoming Events
+            </h3>
+            <a href="#" class="text-brand-700 hover:text-brand-800 font-semibold text-sm flex items-center">
+              Full Calendar
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Event Item 1 -->
+            <article class="bg-slate-50 rounded-lg p-5 hover:shadow-md transition-shadow border-l-4 border-brand-700">
+              <div class="flex items-start space-x-4">
+                <div class="bg-brand-700 text-white rounded-lg p-3 text-center flex-shrink-0">
+                  <div class="text-2xl font-bold leading-none">25</div>
+                  <div class="text-xs uppercase mt-1">Jan</div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-900 mb-1">Welcome Back Day</h4>
+                  <p class="text-sm text-slate-600 mb-2">Join us for student activities, free food, and campus tours</p>
+                  <div class="flex items-center text-xs text-slate-500">
+                    <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                    10:00 AM - 2:00 PM
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Event Item 2 - Featured -->
+            <article class="bg-slate-50 rounded-lg p-5 hover:shadow-md transition-shadow border-l-4 border-brand-700 relative">
+              <span class="absolute top-3 right-3 bg-sky-100 text-sky-700 text-xs font-bold px-2 py-0.5 rounded-full">Featured</span>
+              <div class="flex items-start space-x-4">
+                <div class="bg-brand-600 text-white rounded-lg p-3 text-center flex-shrink-0">
+                  <div class="text-2xl font-bold leading-none">30</div>
+                  <div class="text-xs uppercase mt-1">Jan</div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-900 mb-1">Career Fair 2026</h4>
+                  <p class="text-sm text-slate-600 mb-2">Meet local employers and explore career opportunities</p>
+                  <div class="flex items-center text-xs text-slate-500">
+                    <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                    1:00 PM - 4:00 PM
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Event Item 3 -->
+            <article class="bg-slate-50 rounded-lg p-5 hover:shadow-md transition-shadow border-l-4 border-brand-700">
+              <div class="flex items-start space-x-4">
+                <div class="bg-brand-800 text-white rounded-lg p-3 text-center flex-shrink-0">
+                  <div class="text-2xl font-bold leading-none">05</div>
+                  <div class="text-xs uppercase mt-1">Feb</div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-900 mb-1">Financial Aid Workshop</h4>
+                  <p class="text-sm text-slate-600 mb-2">Learn how to apply for FAFSA and scholarships</p>
+                  <div class="flex items-center text-xs text-slate-500">
+                    <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                    6:00 PM - 7:30 PM
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Event Item 4 -->
+            <article class="bg-slate-50 rounded-lg p-5 hover:shadow-md transition-shadow border-l-4 border-brand-700">
+              <div class="flex items-start space-x-4">
+                <div class="bg-brand-700 text-white rounded-lg p-3 text-center flex-shrink-0">
+                  <div class="text-2xl font-bold leading-none">12</div>
+                  <div class="text-xs uppercase mt-1">Feb</div>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-900 mb-1">Student Success Workshop</h4>
+                  <p class="text-sm text-slate-600 mb-2">Time management and study skills for college success</p>
+                  <div class="flex items-center text-xs text-slate-500">
+                    <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                    12:00 PM - 1:00 PM
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+        <!-- About Section -->
+        <div>
+          <div class="mb-6">
+            <img src="https://richmondcc.edu/sites/default/files/footer-logo.png"
+                 alt="Richmond Community College"
+                 class="h-16 w-auto">
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Personalized, quality instruction at a manageable cost. Building brighter futures in Richmond County since 1964.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Academic Programs
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Admissions
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Financial Aid
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Student Services
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Campus Life
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div>1042 W Hamlet Ave</div>
+                <div>Hamlet, NC 28345</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="phone" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="tel:9104101700" class="hover:text-brand-400 transition-colors">
+                (910) 410-1700
+              </a>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="mail" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="mailto:info@richmondcc.edu" class="hover:text-brand-400 transition-colors">
+                info@richmondcc.edu
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Campuses -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Our Campuses</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Hamlet Campus</div>
+                <div class="text-sm text-slate-400">Main Campus</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Scotland County Campus</div>
+                <div class="text-sm text-slate-400">Satellite Location</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-sm text-slate-400">© 2026 Richmond Community College. All rights reserved.</p>
+        <div class="flex flex-wrap gap-6 text-sm">
+          <a href="#" class="hover:text-brand-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Accessibility</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Title IX</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Non-Discrimination</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SEARCH MODAL -->
+  <div x-data="{ searchOpen: false }"
+       @open-search.window="searchOpen = true"
+       x-show="searchOpen"
+       x-cloak
+       class="fixed inset-0 z-50 overflow-y-auto"
+       @keydown.escape.window="searchOpen = false">
+
+    <!-- Backdrop -->
+    <div x-show="searchOpen"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="searchOpen = false"
+         class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+
+    <!-- Search Panel -->
+    <div class="relative min-h-screen flex items-start justify-center p-4 pt-[10vh]">
+      <div x-show="searchOpen"
+           x-transition:enter="transition ease-out duration-300"
+           x-transition:enter-start="opacity-0 scale-95"
+           x-transition:enter-end="opacity-100 scale-100"
+           x-transition:leave="transition ease-in duration-200"
+           x-transition:leave-start="opacity-100 scale-100"
+           x-transition:leave-end="opacity-0 scale-95"
+           class="relative bg-white rounded-xl shadow-2xl w-full max-w-3xl"
+           @click.away="searchOpen = false">
+
+        <!-- Search Header -->
+        <div class="border-b border-slate-200 p-6">
+          <div class="flex items-center space-x-4">
+            <i data-lucide="search" class="w-6 h-6 text-slate-400"></i>
+            <input type="text"
+                   x-ref="searchInput"
+                   placeholder="Search programs, courses, services..."
+                   class="flex-1 text-xl outline-none text-slate-900 placeholder-slate-400"
+                   @keyup.enter="alert('Search functionality coming soon!')"
+                   x-init="$watch('searchOpen', value => { if(value) { setTimeout(() => $refs.searchInput.focus(), 100) } })">
+            <button @click="searchOpen = false" class="text-slate-400 hover:text-slate-600 transition-colors">
+              <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="p-6">
+          <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-4">Quick Links</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <a href="/pages/admissions/application.html" class="flex items-center p-3 bg-slate-50 hover:bg-brand-50 rounded-lg transition-colors group">
+              <i data-lucide="file-text" class="w-5 h-5 mr-3 text-brand-600"></i>
+              <span class="font-semibold text-slate-700 group-hover:text-brand-700">Apply Now</span>
+            </a>
+            <a href="/pages/academics/programs/index.html" class="flex items-center p-3 bg-slate-50 hover:bg-brand-50 rounded-lg transition-colors group">
+              <i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-brand-600"></i>
+              <span class="font-semibold text-slate-700 group-hover:text-brand-700">View Programs</span>
+            </a>
+            <a href="/pages/admissions/financial-aid.html" class="flex items-center p-3 bg-slate-50 hover:bg-brand-50 rounded-lg transition-colors group">
+              <i data-lucide="dollar-sign" class="w-5 h-5 mr-3 text-brand-600"></i>
+              <span class="font-semibold text-slate-700 group-hover:text-brand-700">Financial Aid</span>
+            </a>
+            <a href="/pages/student-services/student-portal.html" class="flex items-center p-3 bg-slate-50 hover:bg-brand-50 rounded-lg transition-colors group">
+              <i data-lucide="user" class="w-5 h-5 mr-3 text-brand-600"></i>
+              <span class="font-semibold text-slate-700 group-hover:text-brand-700">Student Portal</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Popular Searches -->
+        <div class="px-6 pb-6">
+          <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Popular Searches</h3>
+          <div class="flex flex-wrap gap-2">
+            <a href="#" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-100 text-slate-700 hover:text-brand-700 rounded-full text-sm font-medium transition-colors">Nursing Program</a>
+            <a href="#" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-100 text-slate-700 hover:text-brand-700 rounded-full text-sm font-medium transition-colors">Class Schedule</a>
+            <a href="#" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-100 text-slate-700 hover:text-brand-700 rounded-full text-sm font-medium transition-colors">Academic Calendar</a>
+            <a href="#" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-100 text-slate-700 hover:text-brand-700 rounded-full text-sm font-medium transition-colors">Scholarships</a>
+            <a href="#" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-100 text-slate-700 hover:text-brand-700 rounded-full text-sm font-medium transition-colors">Transfer Programs</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+
+      // Reinitialize icons after Alpine.js transitions
+      document.addEventListener('alpine:initialized', () => {
+        setTimeout(() => lucide.createIcons(), 100);
+      });
+    });
+  </script>
+
+</body>
+</html>

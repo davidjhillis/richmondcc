@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics | Richmond Community College</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f4',
+              100: '#fce7eb',
+              200: '#f9d0d8',
+              300: '#f4a8b8',
+              400: '#ed7691',
+              500: '#e24968',
+              600: '#ce2d54',
+              700: '#9C1C32',  // Main brand color
+              800: '#8a1a2e',
+              900: '#751829',
+            }
+            // Using Tailwind's default sky and slate colors
+          },
+          fontFamily: {
+            'serif': ['"Crimson Text"', 'Georgia', 'serif'],
+            'sans': ['"Open Sans"', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: {
+            'content': '1280px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js Collapse Plugin -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Alpine.js Core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    [x-cloak] { display: none !important; }
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; }
+  </style>
+</head>
+<body class="antialiased" x-data>
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <!-- Utility Nav -->
+    <div class="bg-brand-700 text-white text-sm">
+      <div class="container mx-auto px-4 py-2.5 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <span class="flex items-center">
+            <i data-lucide="phone" class="w-4 h-4 mr-1.5"></i>
+            (910) 410-1700
+          </span>
+          <span class="hidden md:flex items-center">
+            <i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i>
+            Hamlet, NC
+          </span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-brand-200 transition-colors font-medium">Apply Now</a>
+          <a href="#" class="hover:text-brand-200 transition-colors">Pay Tuition</a>
+          <a href="#" class="hover:text-brand-200 transition-colors">Self-Service</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="container mx-auto px-4 py-5">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="/index.html" class="flex items-center">
+          <img src="https://richmondcc.edu/sites/all/themes/richmond/images/logo-new.png"
+               alt="Richmond Community College"
+               class="h-16 w-auto">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8" x-data="{ activeMenu: null }">
+
+          <!-- Academics Dropdown -->
+          <div @mouseenter="activeMenu = 'academics'"
+               @mouseleave="activeMenu = null"
+               class="relative">
+            <button class="text-brand-700 font-bold transition-colors py-2 flex items-center border-b-2 border-brand-700">
+              Academics
+              <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+            </button>
+
+            <!-- Mega Menu Dropdown -->
+            <div x-show="activeMenu === 'academics'"
+                 x-transition
+                 x-cloak
+                 class="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl bg-white shadow-xl rounded-b-lg mt-1 p-8 grid grid-cols-3 gap-8 border-t-4 border-brand-700">
+
+              <div>
+                <h3 class="font-bold text-brand-700 mb-4 text-lg">Programs & Degrees</h3>
+                <ul class="space-y-2.5">
+                  <li><a href="/pages/academics/programs/index.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    All Programs
+                  </a></li>
+                  <li><a href="/pages/academics/programs/associate-degrees.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Associate Degrees
+                  </a></li>
+                  <li><a href="/pages/academics/programs/diplomas-certificates.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Diplomas & Certificates
+                  </a></li>
+                  <li><a href="/pages/academics/programs/transfer-programs.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Transfer Programs
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-brand-700 mb-4 text-lg">Resources</h3>
+                <ul class="space-y-2.5">
+                  <li><a href="/pages/academics/course-catalog.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Course Catalog
+                  </a></li>
+                  <li><a href="/pages/academics/class-schedules.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Class Schedules
+                  </a></li>
+                  <li><a href="/pages/academics/academic-calendar.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Academic Calendar
+                  </a></li>
+                  <li><a href="/pages/academics/library.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Library
+                  </a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-brand-700 mb-4 text-lg">Student Support</h3>
+                <ul class="space-y-2.5">
+                  <li><a href="/pages/academics/advising.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Academic Advising
+                  </a></li>
+                  <li><a href="/pages/academics/tutoring.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Tutoring Services
+                  </a></li>
+                  <li><a href="/pages/academics/registration.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Registration
+                  </a></li>
+                  <li><a href="/pages/academics/graduation.html" class="text-slate-600 hover:text-brand-700 transition-colors flex items-center">
+                    <i data-lucide="arrow-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+                    Graduation
+                  </a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Other nav items (collapsed for brevity - same as homepage) -->
+          <a href="/pages/admissions/index.html" class="text-slate-700 hover:text-brand-700 font-semibold transition-colors">Admissions</a>
+          <a href="/pages/student-services/index.html" class="text-slate-700 hover:text-brand-700 font-semibold transition-colors">Student Services</a>
+          <a href="/pages/about/index.html" class="text-slate-700 hover:text-brand-700 font-semibold transition-colors">About Us</a>
+          <a href="/pages/contact/index.html" class="text-slate-700 hover:text-brand-700 font-semibold transition-colors">Contact Us</a>
+
+        </nav>
+
+        <!-- Search & Mobile Menu -->
+        <div class="flex items-center space-x-4">
+          <button @click="$dispatch('open-search')" class="text-slate-600 hover:text-brand-700 transition-colors">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
+          <button class="lg:hidden text-slate-600 hover:text-brand-700 transition-colors">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
+    <!-- Background Image -->
+    <img src="https://images.pexels.com/photos/1181534/pexels-photo-1181534.jpeg?auto=compress&cs=tinysrgb&w=1920&h=500&fit=crop"
+         alt="Academic Excellence"
+         class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-slate-700/70"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-4">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+          Academics at<br>
+          <span class="text-brand-200">Richmond CC</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 leading-relaxed drop-shadow-md">
+          Quality education and career training designed to help you achieve your goals
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/pages/academics/programs/index.html" class="bg-white text-brand-700 hover:bg-brand-50 px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center">
+            View All Programs
+            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+          </a>
+          <a href="/pages/admissions/application.html" class="bg-brand-600 hover:bg-brand-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all border-2 border-white/20 hover:border-white/40 inline-flex items-center">
+            Apply Now
+            <i data-lucide="file-text" class="w-5 h-5 ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM CATEGORIES -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Explore Our Programs
+        </h2>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+          Richmond CC offers over 60 programs in a wide range of career and transfer fields
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        <!-- Category 1 -->
+        <a href="/pages/academics/programs/associate-degrees.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Associate Degrees"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Associate Degrees
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Two-year degrees for career preparation or university transfer
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Explore Degrees
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 2 -->
+        <a href="/pages/academics/programs/diplomas-certificates.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/5940831/pexels-photo-5940831.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Diplomas & Certificates"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-200 text-brand-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Diplomas & Certificates
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Focused programs to get you job-ready quickly
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              View Programs
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 3 -->
+        <a href="/pages/academics/programs/transfer-programs.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Transfer Programs"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-300 text-brand-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="move-right" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Transfer Programs
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Start here, transfer anywhere to complete your bachelor's
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Transfer Info
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 4 -->
+        <a href="/pages/academics/course-catalog.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Course Catalog"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Course Catalog
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Browse our complete catalog of courses and programs
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              View Catalog
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 5 -->
+        <a href="/pages/academics/class-schedules.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Class Schedules"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-200 text-brand-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="calendar" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Class Schedules
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Find course offerings for upcoming semesters
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              View Schedules
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 6 -->
+        <a href="/pages/academics/advising.html" class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-100 hover:border-brand-200 hover:-translate-y-1">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+                 alt="Academic Advising"
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 bg-brand-300 text-brand-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-700 transition-colors">
+              Academic Advising
+            </h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+              Get personalized guidance to reach your academic goals
+            </p>
+            <span class="text-brand-700 font-semibold inline-flex items-center">
+              Get Advising
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE RICHMOND CC -->
+  <section class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+        <!-- Image -->
+        <div>
+          <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+               alt="Richmond CC Campus"
+               class="rounded-xl shadow-2xl w-full">
+        </div>
+
+        <!-- Content -->
+        <div>
+          <h2 class="text-4xl font-bold text-slate-900 mb-6">
+            Why Choose Richmond CC Academics?
+          </h2>
+          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+            Quality education that's accessible, affordable, and designed with your success in mind
+          </p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-6 h-6 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
+              <div>
+                <div class="font-semibold text-slate-900 mb-1">Small Class Sizes</div>
+                <div class="text-slate-600">15:1 student-faculty ratio for personalized attention</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-6 h-6 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
+              <div>
+                <div class="font-semibold text-slate-900 mb-1">Affordable Tuition</div>
+                <div class="text-slate-600">$76 per credit hour - one of the lowest in North Carolina</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-6 h-6 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
+              <div>
+                <div class="font-semibold text-slate-900 mb-1">Transfer Agreements</div>
+                <div class="text-slate-600">Seamless transfer to UNC schools and other universities</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-6 h-6 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
+              <div>
+                <div class="font-semibold text-slate-900 mb-1">Flexible Scheduling</div>
+                <div class="text-slate-600">Day, evening, online, and hybrid class options</div>
+              </div>
+            </li>
+          </ul>
+          <a href="/pages/admissions/index.html" class="inline-block bg-brand-700 hover:bg-brand-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+            Get Started Today
+            <i data-lucide="arrow-right" class="w-5 h-5 inline ml-2"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="py-20 bg-gradient-to-br from-slate-50 via-brand-50 to-brand-100">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          Ready to Start Your Academic Journey?
+        </h2>
+        <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+          Explore our programs, apply for admission, and take the first step toward achieving your educational goals
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/pages/academics/programs/index.html" class="bg-brand-700 hover:bg-brand-800 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center">
+            <i data-lucide="search" class="w-5 h-5 mr-2"></i>
+            Browse Programs
+          </a>
+          <a href="/pages/admissions/application.html" class="bg-white hover:bg-slate-50 text-brand-700 px-10 py-4 rounded-lg font-bold text-lg transition-all border-2 border-brand-700 hover:border-brand-800 inline-flex items-center">
+            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i>
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+        <!-- About Section -->
+        <div>
+          <div class="mb-6">
+            <img src="https://richmondcc.edu/sites/default/files/footer-logo.png"
+                 alt="Richmond Community College"
+                 class="h-16 w-auto">
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Personalized, quality instruction at a manageable cost. Building brighter futures in Richmond County since 1964.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="/pages/academics/programs/index.html" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Academic Programs
+            </a></li>
+            <li><a href="/pages/admissions/index.html" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Admissions
+            </a></li>
+            <li><a href="/pages/admissions/financial-aid.html" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Financial Aid
+            </a></li>
+            <li><a href="/pages/student-services/index.html" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Student Services
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div>1042 W Hamlet Ave</div>
+                <div>Hamlet, NC 28345</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="phone" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="tel:9104101700" class="hover:text-brand-400 transition-colors">
+                (910) 410-1700
+              </a>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="mail" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="mailto:info@richmondcc.edu" class="hover:text-brand-400 transition-colors">
+                info@richmondcc.edu
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Campuses -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Our Campuses</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Hamlet Campus</div>
+                <div class="text-sm text-slate-400">Main Campus</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Scotland County Campus</div>
+                <div class="text-sm text-slate-400">Satellite Location</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-sm text-slate-400">© 2026 Richmond Community College. All rights reserved.</p>
+        <div class="flex flex-wrap gap-6 text-sm">
+          <a href="#" class="hover:text-brand-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Accessibility</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Title IX</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Non-Discrimination</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+    });
+  </script>
+
+</body>
+</html>
