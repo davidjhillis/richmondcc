@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Journey | Richmond Community College</title>
+  <meta name="description" content="Transform your future at Richmond Community College. Affordable education, flexible schedules, career-focused programs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f4', 100: '#fce7eb', 200: '#f9d0d8', 300: '#f4a8b8', 400: '#ed7691',
+              500: '#e24968', 600: '#ce2d54', 700: '#9C1C32', 800: '#8a1a2e', 900: '#751829',
+            }
+          },
+          fontFamily: { 'serif': ['"Crimson Text"', 'Georgia', 'serif'], 'sans': ['"Open Sans"', 'system-ui', 'sans-serif'] },
+          maxWidth: { 'content': '1280px' }
+        }
+      }
+    }
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; }
+  </style>
+</head>
+<body class="bg-white" x-data="{ formSubmitted: false }">
+
+  <!-- DEMO NAV BAR -->
+  <nav class="bg-slate-900 text-white py-3 sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+        <span class="font-semibold">Page Type Viewer</span>
+      </div>
+
+      <!-- Dropdown Menu -->
+      <div x-data="{ open: false }" class="relative">
+        <button
+          @click="open = !open"
+          class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+          <span>All Pages</span>
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Dropdown Panel -->
+        <div
+          x-show="open"
+          @click.away="open = false"
+          x-transition:enter="transition ease-out duration-200"
+          x-transition:enter-start="opacity-0 -translate-y-2"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-150"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-2"
+          x-cloak
+          class="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+
+                    <div class="px-4 py-2 bg-slate-50 border-b border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase">Active Pages</span>
+          </div>
+
+          <a href="/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="home" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Home</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/academics/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="book-open" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Section Front</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/academics/programs.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="graduation-cap" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Program Listing</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/academics/program-detail.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Program Detail</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/about/mission-vision.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="info" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Content Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/news/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">News Listing</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/news/article.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">News Article</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/events/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="calendar" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Event Listing</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/events/detail.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="ticket" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Event Detail</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/staff/directory.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="users" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Staff Directory</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/staff/profile.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="user" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Staff Profile</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/contact/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Contact Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/search/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="search" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Search Results</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/landing/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="rocket" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">Landing Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/error/404.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="alert-circle" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">404 Error Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <a href="/pages/error/500.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="alert-triangle" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">500 Error Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
+
+          <div class="border-t border-slate-100 my-2"></div>
+
+          <div class="px-4 py-2 bg-slate-50 border-b border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase">Archived Pages</span>
+          </div>
+
+          <a href="/archive/pages/about/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="info" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">About</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-brand-700 to-brand-900 text-white py-20">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold italic mb-6">Your Future Starts Here</h1>
+        <p class="text-xl md:text-2xl mb-8 text-brand-50">
+          Affordable, career-focused education designed to help you succeed. 
+          Classes start soon—take the first step today.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#apply" class="px-8 py-4 bg-white text-brand-700 font-bold rounded-lg hover:bg-brand-50 transition-colors text-lg">
+            Apply Now
+          </a>
+          <a href="#programs" class="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-brand-700 transition-colors text-lg">
+            Explore Programs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-slate-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold italic text-brand-400 mb-2">60+</div>
+          <div class="text-slate-300">Programs Offered</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold italic text-brand-400 mb-2">$2,500</div>
+          <div class="text-slate-300">Average Tuition/Year</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold italic text-brand-400 mb-2">95%</div>
+          <div class="text-slate-300">Job Placement Rate</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold italic text-brand-400 mb-2">3,000+</div>
+          <div class="text-slate-300">Students Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Categories -->
+  <section id="programs" class="py-16 bg-slate-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold italic text-slate-900 mb-4">Choose Your Path</h2>
+        <p class="text-xl text-slate-600">Explore programs designed for real-world success</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="heart-pulse" class="w-8 h-8 text-brand-700"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">Healthcare</h3>
+          <p class="text-slate-600 mb-4">Nursing, Medical Assisting, Dental Hygiene, and more high-demand healthcare careers.</p>
+          <a href="/pages/academics/programs.html" class="text-brand-600 hover:text-brand-700 font-semibold flex items-center">
+            View Programs
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="laptop" class="w-8 h-8 text-brand-700"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">Technology</h3>
+          <p class="text-slate-600 mb-4">Cybersecurity, Programming, Network Administration, and IT certifications.</p>
+          <a href="/pages/academics/programs.html" class="text-brand-600 hover:text-brand-700 font-semibold flex items-center">
+            View Programs
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="briefcase" class="w-8 h-8 text-brand-700"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">Business</h3>
+          <p class="text-slate-600 mb-4">Accounting, Management, Marketing, and Entrepreneurship programs.</p>
+          <a href="/pages/academics/programs.html" class="text-brand-600 hover:text-brand-700 font-semibold flex items-center">
+            View Programs
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold italic text-slate-900 mb-4">Student Success Stories</h2>
+        <p class="text-xl text-slate-600">Hear from students who transformed their lives at RichmondCC</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 rounded-xl p-8">
+          <div class="flex items-center mb-4">
+            <img src="https://placehold.co/60x60/9C1C32/FFFFFF?text=SM" alt="Student" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <div class="font-semibold text-slate-900">Sarah Martinez</div>
+              <div class="text-sm text-slate-600">Nursing Graduate</div>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"The nursing program prepared me perfectly for my career. The instructors were supportive and the clinical experiences were invaluable."</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-8">
+          <div class="flex items-center mb-4">
+            <img src="https://placehold.co/60x60/9C1C32/FFFFFF?text=JW" alt="Student" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <div class="font-semibold text-slate-900">James Wilson</div>
+              <div class="text-sm text-slate-600">IT Graduate</div>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"I went from no tech experience to landing a cybersecurity job in just 18 months. RichmondCC changed my life."</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-8">
+          <div class="flex items-center mb-4">
+            <img src="https://placehold.co/60x60/9C1C32/FFFFFF?text=LT" alt="Student" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <div class="font-semibold text-slate-900">Lisa Thompson</div>
+              <div class="text-sm text-slate-600">Business Graduate</div>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"The flexible schedule allowed me to work full-time while earning my degree. Now I own my own business!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Form Section -->
+  <section id="apply" class="py-16 bg-brand-700 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl font-bold italic mb-4">Ready to Get Started?</h2>
+          <p class="text-xl text-brand-50">Fill out this form and we'll help you find the perfect program.</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-xl p-8 text-slate-900">
+          <form x-show="!formSubmitted" @submit.prevent="formSubmitted = true" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">First Name *</label>
+                <input type="text" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Last Name *</label>
+                <input type="text" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">Email *</label>
+                <input type="email" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Phone *</label>
+                <input type="tel" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Program of Interest *</label>
+              <select required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+                <option value="">Select a program...</option>
+                <option>Nursing</option>
+                <option>Information Technology</option>
+                <option>Business Administration</option>
+                <option>Welding</option>
+                <option>Not Sure Yet</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-brand-700 text-white font-bold rounded-lg hover:bg-brand-800 transition-colors text-lg">
+              Request Information
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div x-show="formSubmitted" class="text-center py-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
+              <i data-lucide="check-circle" class="w-8 h-8 text-green-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Thank You!</h3>
+            <p class="text-slate-600">We'll be in touch within 24 hours to help you start your journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>lucide.createIcons();</script>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+        <!-- About Section -->
+        <div>
+          <div class="mb-6">
+            <img src="https://richmondcc.edu/sites/default/files/footer-logo.png"
+                 alt="Richmond Community College"
+                 class="h-20 w-auto">
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Personalized, quality instruction at a manageable cost. Building brighter futures in Richmond County since 1964.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Academic Programs
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Admissions
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Financial Aid
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Student Services
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Campus Life
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div>1042 W Hamlet Ave</div>
+                <div>Hamlet, NC 28345</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="phone" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="tel:9104101700" class="hover:text-brand-400 transition-colors">
+                (910) 410-1700
+              </a>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="mail" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="mailto:info@richmondcc.edu" class="hover:text-brand-400 transition-colors">
+                info@richmondcc.edu
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Campuses -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Our Campuses</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Hamlet Campus</div>
+                <div class="text-sm text-slate-400">Main Campus</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Scotland County Campus</div>
+                <div class="text-sm text-slate-400">Satellite Location</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-sm text-slate-400">© 2026 Richmond Community College. All rights reserved.</p>
+        <div class="flex flex-wrap gap-6 text-sm">
+          <a href="#" class="hover:text-brand-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Accessibility</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Title IX</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Non-Discrimination</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
