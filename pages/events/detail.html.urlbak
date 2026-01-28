@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academics | Richmond Community College</title>
-  <meta name="description" content="Choose from 60+ programs designed to help you achieve your goals at Richmond Community College.">
+  <title data-cms-field="title">Career Fair 2026 | Richmond Community College</title>
+  <meta name="description" content="Join us for our annual Career Fair featuring 50+ local employers from healthcare, manufacturing, and business sectors." data-cms-field="metaDescription">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,189 +66,53 @@
 </head>
 <body class="bg-white font-body">
 
-  <!-- DEMO NAV BAR -->
-  <nav class="bg-slate-900 text-white py-3 sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 flex items-center justify-between">
+  <!-- Demo Navigation Bar -->
+  <div class="bg-slate-900 text-white py-3 sticky top-0 z-50 shadow-lg" x-data="{ dropdownOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center space-x-2">
         <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
         <span class="font-semibold">Page Type Viewer</span>
       </div>
-
-      <!-- Dropdown Menu -->
-      <div x-data="{ open: false }" class="relative">
-        <button
-          @click="open = !open"
-          class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors">
-          <i data-lucide="menu" class="w-5 h-5"></i>
-          <span>All Pages</span>
+      <div class="relative">
+        <button @click="dropdownOpen = !dropdownOpen" class="flex items-center space-x-2 px-4 py-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition">
+          <span>Event Detail</span>
           <i data-lucide="chevron-down" class="w-4 h-4"></i>
         </button>
-
-        <!-- Dropdown Panel -->
-        <div
-          x-show="open"
-          @click.away="open = false"
-          x-transition:enter="transition ease-out duration-200"
-          x-transition:enter-start="opacity-0 -translate-y-2"
-          x-transition:enter-end="opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-150"
-          x-transition:leave-start="opacity-100 translate-y-0"
-          x-transition:leave-end="opacity-0 -translate-y-2"
-          x-cloak
-          class="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-
-                    <div class="px-4 py-2 bg-slate-50 border-b border-slate-200">
-            <span class="text-xs font-bold text-slate-500 uppercase">Active Pages</span>
+        <div x-show="dropdownOpen" @click.away="dropdownOpen = false"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 translate-y-1"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50">
+          <div class="px-4 py-2 text-xs font-semibold text-slate-500 uppercase">Active Pages</div>
+          <a href="/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Home</a>
+          <a href="/pages/academics/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Section Front</a>
+          <a href="/pages/academics/programs.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Program Listing</a>
+          <a href="/pages/academics/program-detail.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Program Detail</a>
+          <a href="/pages/about/mission-vision.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Content Page</a>
+          <a href="/pages/news/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">News Listing</a>
+          <a href="/pages/news/article.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">News Article</a>
+          <a href="/pages/events/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Event Listing</a>
+          <a href="/pages/events/detail.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Event Detail</a>
+          <a href="/pages/staff/directory.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Staff Directory</a>
+          <a href="/pages/staff/profile.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Staff Profile</a>
+          <a href="/pages/contact/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Contact Page</a>
+          <a href="/pages/search/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Search Results</a>
+          <a href="/pages/landing/index.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Landing Page</a>
+          <a href="/pages/error/404.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">404 Error Page</a>
+          <a href="/pages/error/500.html" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">500 Error Page</a>
+          <div class="border-t border-slate-200 mt-2 pt-2">
+            <div class="px-4 py-2 text-xs font-semibold text-slate-500 uppercase flex items-center">
+              <span>Archived Pages</span>
+              <span class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 text-xs rounded">Old</span>
+            </div>
+            <a href="/archive/pages/index.html" class="block px-4 py-2 text-slate-400 hover:bg-slate-100">Archive Home</a>
           </div>
 
-          <a href="/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="home" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Home</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/academics/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="book-open" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Section Front</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/academics/programs" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="graduation-cap" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Program Listing</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/academics/program-detail" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Program Detail</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/about/mission-vision" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="info" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Content Page</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/news/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">News Listing</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/news/article" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">News Article</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/events/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="calendar" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Event Listing</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/events/detail" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="ticket" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Event Detail</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/staff/directory" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="users" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Staff Directory</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/staff/profile" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="user" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Staff Profile</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/contact/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Contact Page</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/search/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="search" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Search Results</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/landing/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="rocket" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">Landing Page</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/error/404" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="alert-circle" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">404 Error Page</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <a href="/pages/error/500" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
-            <i data-lucide="alert-triangle" class="w-4 h-4 mr-3 text-brand-500"></i>
-            <span class="font-medium">500 Error Page</span>
-            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
-          </a>
-
-          <div class="border-t border-slate-100 my-2"></div>
-
-          <div class="px-4 py-2 bg-slate-50 border-b border-slate-200">
-            <span class="text-xs font-bold text-slate-500 uppercase">Archived Pages</span>
-          </div>
-
-          <a href="/archive/pages/about/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="info" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">About</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-          <a href="/archive/pages/admissions/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="user-plus" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Admissions</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-          <a href="/archive/pages/student-services/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="life-buoy" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Student Services</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-          <a href="/archive/pages/contact/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="mail" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Contact</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-
-          <a href="/archive/pages/admissions/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="user-plus" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Admissions</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-          <a href="/archive/pages/student-services/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="life-buoy" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Student Services</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
-
-          <a href="/archive/pages/contact/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
-            <i data-lucide="mail" class="w-4 h-4 mr-3 text-slate-400"></i>
-            <span class="font-medium">Contact</span>
-            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
-          </a>
+        </div>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 
   <!-- HEADER -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
@@ -278,7 +142,7 @@
       <div class="flex items-center justify-between">
 
         <!-- Logo -->
-        <a href="/" class="flex items-center">
+        <a href="/index.html" class="flex items-center">
           <img src="https://richmondcc.edu/sites/all/themes/richmond/images/logo-new.png"
                alt="Richmond Community College"
                class="h-20 w-auto">
@@ -780,222 +644,330 @@
       <ol class="flex items-center space-x-2 text-sm">
         <li><a href="/" class="text-slate-500 hover:text-brand-500 transition">Home</a></li>
         <li class="text-slate-400">/</li>
-        <li class="text-slate-900 font-medium">Academics</li>
+        <li><a href="/pages/events/index.html" class="text-slate-500 hover:text-brand-500 transition">Events</a></li>
+        <li class="text-slate-400">/</li>
+        <li class="text-slate-900 font-medium">Career Fair 2026</li>
       </ol>
     </div>
   </nav>
 
   <main>
-    <!-- TRAY 1: Hero (Text Overlay) -->
-    <section class="relative h-[400px] md:h-[500px] bg-cover bg-center"
-             style="background-image: url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920')"
-             data-cms-component="hero-text-overlay">
-      <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
-      <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-        <div class="max-w-3xl text-white">
-          <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl italic font-semibold text-white mb-6" data-cms-field="heading">
-            Academics at RichmondCC
-          </h1>
-          <p class="text-xl text-white/90 mb-8" data-cms-field="subheading">
-            Choose from 60+ programs designed to help you achieve your goals.
-          </p>
-          <div class="flex flex-wrap gap-4" data-cms-field="ctaButtons">
-            <a href="/pages/academics/programs.html" class="inline-flex items-center px-6 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition shadow-lg shadow-crimson-500/25">
-              Explore Programs
-              <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
-            </a>
-            <a href="/apply" class="inline-flex items-center px-6 py-3 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition">
-              Apply Now
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- TRAY 2: Body Copy (Section Intro) -->
-    <section class="py-16 bg-white"
-             data-cms-component="body-copy">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="prose prose-lg prose-slate max-w-none" data-cms-field="bodyContent">
-          <p class="text-xl text-slate-700 leading-relaxed mb-6">
-            Richmond Community College offers associate degrees, diplomas, and certificates in high-demand career fields.
-            Whether you're planning to transfer to a four-year university or enter the workforce immediately,
-            we have a program that's right for you.
-          </p>
-          <p class="text-slate-600">
-            Our experienced faculty, state-of-the-art facilities, and affordable tuition make RichmondCC
-            the smart choice for your education. With flexible schedules including day, evening, and online classes,
-            you can pursue your education while balancing work and family commitments.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRAY 3: Featured Cards - Academic Areas -->
-    <section class="py-16 bg-slate-50"
-             data-cms-component="featured-card-image">
+    <!-- Event Header -->
+    <section class="py-12 bg-white" data-cms-component="event-header">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="font-heading text-3xl md:text-4xl italic font-semibold text-slate-900 text-center mb-12" data-cms-field="heading">
-          Academic Areas
-        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-cms-field="cards">
+          <!-- Main Info -->
+          <div class="lg:col-span-2">
 
-          <!-- Card 1: Transfer Programs -->
-          <a href="/pages/academics/programs.html#transfer" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Transfer Programs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="building-2" class="w-6 h-6 text-brand-500"></i>
-              </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Transfer Programs
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Start here and transfer to a four-year university. Save money and stay close to home.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                Learn More
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+            <!-- Featured Badge -->
+            <div class="mb-4">
+              <span class="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-600 text-sm font-medium rounded-full" data-cms-field="category">
+                <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i>
+                Career Services
               </span>
             </div>
-          </a>
 
-          <!-- Card 2: Health Sciences -->
-          <a href="/pages/academics/programs.html#health" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Health Sciences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="heart-pulse" class="w-6 h-6 text-brand-500"></i>
-              </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Health Sciences
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Nursing, medical assisting, and allied health programs preparing you for in-demand healthcare careers.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                Explore Programs
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </span>
-            </div>
-          </a>
+            <!-- Event Title -->
+            <h1 class="font-heading text-4xl md:text-5xl italic font-semibold text-slate-900 mb-6" data-cms-field="eventTitle">
+              Career Fair 2026
+            </h1>
 
-          <!-- Card 3: Business & Technology -->
-          <a href="/pages/academics/programs.html#business" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business & Technology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="briefcase" class="w-6 h-6 text-brand-500"></i>
+            <!-- Event Quick Details -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div class="flex items-center space-x-3 text-slate-700">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="calendar" class="w-6 h-6 text-brand-500"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-slate-500">Date</div>
+                  <div class="font-semibold" data-cms-field="eventDate">January 30, 2026</div>
+                </div>
               </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Business & Technology
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Accounting, management, computer science, and information technology programs.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                View Options
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </span>
-            </div>
-          </a>
 
-          <!-- Card 4: Skilled Trades -->
-          <a href="/pages/academics/programs.html#trades" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Skilled Trades" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="wrench" class="w-6 h-6 text-brand-500"></i>
+              <div class="flex items-center space-x-3 text-slate-700">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="clock" class="w-6 h-6 text-brand-500"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-slate-500">Time</div>
+                  <div class="font-semibold" data-cms-field="eventTime">1:00 PM - 4:00 PM</div>
+                </div>
               </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Skilled Trades
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Welding, HVAC, electrical, and industrial systems technology programs with hands-on training.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                Get Started
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </span>
-            </div>
-          </a>
 
-          <!-- Card 5: Public Service -->
-          <a href="/pages/academics/programs.html#public-service" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/8112178/pexels-photo-8112178.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Public Service" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="shield" class="w-6 h-6 text-brand-500"></i>
+              <div class="flex items-center space-x-3 text-slate-700">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-brand-500"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-slate-500">Location</div>
+                  <div class="font-semibold" data-cms-field="eventLocation">Student Center</div>
+                </div>
               </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Public Service
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Criminal justice, early childhood education, and human services programs serving our community.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                Learn More
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </span>
-            </div>
-          </a>
 
-          <!-- Card 6: Online Learning -->
-          <a href="/pages/academics/online.html" class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img src="https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Online Learning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-100 transition">
-                <i data-lucide="monitor" class="w-6 h-6 text-brand-500"></i>
+              <div class="flex items-center space-x-3 text-slate-700">
+                <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="ticket" class="w-6 h-6 text-brand-500"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-slate-500">Cost</div>
+                  <div class="font-semibold" data-cms-field="eventCost">Free</div>
+                </div>
               </div>
-              <h3 class="font-heading text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                Online Learning
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Flexible online and hybrid courses allowing you to study anywhere, anytime.
-              </p>
-              <span class="inline-flex items-center text-brand-500 font-semibold text-sm group-hover:text-brand-600 transition">
-                Explore Online Options
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-              </span>
             </div>
-          </a>
+
+            <!-- Featured Image -->
+            <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden shadow-xl mb-8">
+              <img src="https://placehold.co/1200x675/9C1C32/FFFFFF?text=Career+Fair+2026"
+                   alt="Career Fair 2026"
+                   class="w-full h-full object-cover"
+                   data-cms-field="featuredImage">
+            </div>
+
+          </div>
+
+          <!-- Registration Card (Sidebar) -->
+          <div class="lg:col-span-1">
+            <div class="bg-gradient-to-br from-crimson-500 to-crimson-600 rounded-xl p-8 text-white sticky top-24">
+              <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <i data-lucide="user-check" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-2xl font-semibold">Register Now</h3>
+              </div>
+
+              <p class="text-white/90 mb-6">
+                Pre-registration is recommended to receive updates and employer information.
+              </p>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center space-x-2">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-white/80"></i>
+                  <span class="text-sm">50+ employers attending</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-white/80"></i>
+                  <span class="text-sm">Free resume reviews</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-white/80"></i>
+                  <span class="text-sm">On-site interviews</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-white/80"></i>
+                  <span class="text-sm">Open to all students</span>
+                </div>
+              </div>
+
+              <button class="w-full px-6 py-3 bg-white text-brand-500 font-semibold rounded-lg hover:bg-slate-100 transition shadow-lg mb-3">
+                Register for Event
+              </button>
+
+              <button class="w-full px-6 py-3 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/20 transition">
+                Add to Calendar
+              </button>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- TRAY 4: CTA Section -->
-    <section class="py-20 bg-white" data-cms-component="cta-section">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="font-heading text-3xl md:text-4xl italic font-semibold text-slate-900 mb-6">
-          Ready to Start Your Academic Journey?
-        </h2>
-        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
-          Explore all our programs and find the perfect path for your future.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/pages/academics/programs.html" class="inline-flex items-center px-8 py-4 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition shadow-lg shadow-crimson-500/25">
-            <i data-lucide="graduation-cap" class="w-5 h-5 mr-2"></i>
-            View All Programs
-          </a>
-          <a href="/apply" class="inline-flex items-center px-8 py-4 bg-white text-brand-500 font-semibold rounded-lg border-2 border-brand-200 hover:bg-brand-50 hover:border-brand-300 transition">
-            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i>
-            Apply Now
-          </a>
+    <!-- Event Description & Details -->
+    <section class="py-16 bg-slate-50" data-cms-component="event-content">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+
+            <h2 class="font-heading text-3xl md:text-4xl italic font-semibold text-slate-900 mb-6">
+              About This Event
+            </h2>
+
+            <div class="prose prose-lg prose-slate max-w-none bg-white rounded-xl p-8 border border-slate-200 mb-8" data-cms-field="eventDescription">
+              <p class="text-xl text-slate-700 leading-relaxed">
+                The annual Richmond CC Career Fair connects students and community members with employers from across
+                the region who are actively hiring for full-time, part-time, and internship positions.
+              </p>
+
+              <p class="text-slate-700 leading-relaxed">
+                This is your opportunity to meet face-to-face with hiring managers, learn about career opportunities,
+                and make connections that could launch your career. Whether you're graduating this semester or just
+                exploring your options, this event is for you.
+              </p>
+
+              <h3 class="font-heading text-2xl font-semibold text-slate-900 mt-8 mb-4">What to Expect</h3>
+
+              <ul class="space-y-3">
+                <li class="flex items-start space-x-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 mt-1 flex-shrink-0"></i>
+                  <span><strong>50+ Employers:</strong> Representatives from healthcare, manufacturing, business, technology, and more</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 mt-1 flex-shrink-0"></i>
+                  <span><strong>Resume Reviews:</strong> Free professional resume critique and improvement tips</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 mt-1 flex-shrink-0"></i>
+                  <span><strong>On-the-Spot Interviews:</strong> Some employers will conduct interviews during the event</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 mt-1 flex-shrink-0"></i>
+                  <span><strong>Career Advising:</strong> Speak with our career services team about your goals</span>
+                </li>
+              </ul>
+
+              <h3 class="font-heading text-2xl font-semibold text-slate-900 mt-8 mb-4">How to Prepare</h3>
+
+              <div class="bg-brand-50 border-l-4 border-brand-500 p-6 rounded-r-xl">
+                <ol class="list-decimal list-inside space-y-3 text-slate-700">
+                  <li><strong>Bring multiple copies of your resume</strong> (at least 15-20 printed copies)</li>
+                  <li><strong>Dress professionally</strong> in business or business casual attire</li>
+                  <li><strong>Research employers</strong> who will be attending (list provided after registration)</li>
+                  <li><strong>Prepare your elevator pitch</strong> - a 30-second introduction about yourself</li>
+                  <li><strong>Bring a notepad and pen</strong> to take notes during conversations</li>
+                  <li><strong>Arrive early</strong> to have maximum time with employers</li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Participating Employers -->
+            <div class="bg-white rounded-xl p-8 border border-slate-200 mb-8">
+              <h2 class="font-heading text-3xl md:text-4xl italic font-semibold text-slate-900 mb-6">
+                Participating Employers
+              </h2>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">FirstHealth</span>
+                </div>
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">Walmart Distribution</span>
+                </div>
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">County Schools</span>
+                </div>
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">Local Bank</span>
+                </div>
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">Tech Solutions</span>
+                </div>
+                <div class="flex items-center justify-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <span class="font-semibold text-slate-700">+ 45 More</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:col-span-1">
+
+            <!-- Location Map -->
+            <div class="bg-white rounded-xl overflow-hidden border border-slate-200 mb-8">
+              <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h4 class="font-heading text-xl font-semibold text-slate-900">Location</h4>
+              </div>
+
+              <!-- Map Placeholder -->
+              <div class="aspect-square bg-slate-200">
+                <img src="https://placehold.co/400x400/E2E8F0/64748B?text=Map+View"
+                     alt="Map to Student Center"
+                     class="w-full h-full object-cover">
+              </div>
+
+              <div class="p-6">
+                <h5 class="font-semibold text-slate-900 mb-2">Student Center</h5>
+                <p class="text-slate-600 text-sm mb-4">
+                  1042 W Hamlet Ave<br>
+                  Hamlet, NC 28345
+                </p>
+                <a href="#" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-600 transition">
+                  Get Directions
+                  <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 mb-8">
+              <h4 class="font-heading text-xl font-semibold text-slate-900 mb-4">Questions?</h4>
+              <div class="space-y-3">
+                <div class="flex items-start space-x-3">
+                  <i data-lucide="user" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                  <div>
+                    <div class="font-semibold text-slate-900 text-sm">Career Services</div>
+                    <a href="mailto:careers@richmondcc.edu" class="text-brand-500 text-sm hover:text-brand-600 transition">
+                      careers@richmondcc.edu
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i data-lucide="phone" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                  <div>
+                    <a href="tel:9104101700" class="text-slate-700 text-sm hover:text-brand-500 transition">
+                      (910) 410-1700 ext. 245
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Related Events -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+              <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h4 class="font-heading text-xl font-semibold text-slate-900">Related Events</h4>
+              </div>
+              <div class="divide-y divide-slate-200">
+                <a href="#" class="block p-6 hover:bg-slate-50 transition group">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-brand-500 rounded-lg flex flex-col items-center justify-center text-white flex-shrink-0">
+                      <span class="text-lg font-bold leading-none">05</span>
+                      <span class="text-xs uppercase">FEB</span>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-slate-900 mb-1 group-hover:text-brand-500 transition">
+                        Resume Writing Workshop
+                      </h5>
+                      <p class="text-sm text-slate-600">6:00 PM - 7:30 PM</p>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#" class="block p-6 hover:bg-slate-50 transition group">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-brand-500 rounded-lg flex flex-col items-center justify-center text-white flex-shrink-0">
+                      <span class="text-lg font-bold leading-none">12</span>
+                      <span class="text-xs uppercase">FEB</span>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-slate-900 mb-1 group-hover:text-brand-500 transition">
+                        Interview Skills Workshop
+                      </h5>
+                      <p class="text-sm text-slate-600">1:00 PM - 2:30 PM</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </aside>
+
         </div>
+      </div>
+    </section>
+
+    <!-- Back to Events Link -->
+    <section class="py-8 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4">
+        <a href="/pages/events/index.html"
+           class="inline-flex items-center text-brand-500 font-semibold hover:text-brand-600 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+          Back to All Events
+        </a>
       </div>
     </section>
 
@@ -1005,16 +977,11 @@
   <footer class="bg-slate-900 text-slate-300" data-cms-component="footer">
     <div class="max-w-7xl mx-auto px-4 py-16">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-        <!-- Column 1: Logo & About -->
         <div>
-          <div class="h-12 mb-6 flex items-center">
-            <img src="https://richmondcc.edu/sites/default/files/footer-logo.png" alt="Richmond Community College" class="h-20 w-auto">
-          </div>
+          <img src="https://placehold.co/200x60/FFFFFF/9C1C32?text=RichmondCC" alt="Richmond Community College" class="h-12 mb-6">
           <p class="text-slate-400 text-sm leading-relaxed mb-6">
             Personalized, quality instruction at a manageable cost. Building brighter futures in Richmond County since 1964.
           </p>
-          <!-- Social Icons -->
           <div class="flex items-center space-x-3">
             <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-brand-500 transition">
               <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -1030,12 +997,10 @@
             </a>
           </div>
         </div>
-
-        <!-- Column 2: Quick Links -->
         <div>
           <h3 class="text-white font-semibold text-lg mb-6">Quick Links</h3>
           <ul class="space-y-3">
-            <li><a href="/pages/academics/programs.html" class="flex items-center space-x-2 text-slate-400 hover:text-white transition">
+            <li><a href="/academics/programs" class="flex items-center space-x-2 text-slate-400 hover:text-white transition">
               <i data-lucide="chevron-right" class="w-4 h-4 text-brand-400"></i>
               <span>Academic Programs</span>
             </a></li>
@@ -1057,8 +1022,6 @@
             </a></li>
           </ul>
         </div>
-
-        <!-- Column 3: Contact Us -->
         <div>
           <h3 class="text-white font-semibold text-lg mb-6">Contact Us</h3>
           <ul class="space-y-4">
@@ -1076,8 +1039,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Column 4: Our Campuses -->
         <div>
           <h3 class="text-white font-semibold text-lg mb-6">Our Campuses</h3>
           <ul class="space-y-4">
@@ -1099,8 +1060,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Bottom Bar -->
     <div class="border-t border-slate-800">
       <div class="max-w-7xl mx-auto px-4 py-6">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">

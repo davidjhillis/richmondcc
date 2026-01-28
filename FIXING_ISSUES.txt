@@ -1,0 +1,5 @@
+Working on:
+1. Removing duplicate archived pages from dropdown
+2. Rebuilding contact & search pages with proper headers
+
+Status: In progress...

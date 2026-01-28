@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results | Richmond Community College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f4', 100: '#fce7eb', 200: '#f9d0d8', 300: '#f4a8b8', 400: '#ed7691',
+              500: '#e24968', 600: '#ce2d54', 700: '#9C1C32', 800: '#8a1a2e', 900: '#751829',
+            }
+          },
+          fontFamily: { 'serif': ['"Crimson Text"', 'Georgia', 'serif'], 'sans': ['"Open Sans"', 'system-ui', 'sans-serif'] },
+          maxWidth: { 'content': '1280px' }
+        }
+      }
+    }
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; }
+  </style>
+</head>
+<body class="bg-slate-50" x-data="{
+  searchQuery: 'nursing program',
+  selectedFilter: 'all',
+  searchResults: [
+    { title: 'Associate Degree Nursing (ADN)', type: 'Program', url: '/programs/nursing-adn', excerpt: 'The Associate Degree Nursing program prepares students for careers as registered nurses. Clinical experiences at local healthcare facilities...', date: '2026-01-15' },
+    { title: 'Spring Semester Registration Now Open', type: 'News', url: '/news/spring-registration', excerpt: 'Plan your path to success! Register now for spring classes with flexible day, evening, and online options available.', date: '2026-01-20' },
+    { title: 'Nursing Information Session', type: 'Event', url: '/events/nursing-info', excerpt: 'Join us for an information session about our nursing programs. Learn about admission requirements, clinical experiences, and career opportunities.', date: '2026-02-05' },
+    { title: 'Practical Nursing (LPN)', type: 'Program', url: '/programs/lpn', excerpt: 'Our Practical Nursing program provides students with the knowledge and skills needed to become licensed practical nurses.', date: '2026-01-10' },
+    { title: 'Nursing Faculty Profile - Emily Parker', type: 'Staff', url: '/staff/eparker', excerpt: 'Director of Nursing with 15 years of experience in nursing education and clinical practice.', date: '2025-12-01' },
+    { title: 'Healthcare Programs Overview', type: 'Page', url: '/academics/healthcare', excerpt: 'Explore our comprehensive healthcare programs including nursing, medical assisting, dental hygiene, and more.', date: '2025-11-15' }
+  ],
+  get filteredResults() {
+    if (this.selectedFilter === 'all') return this.searchResults;
+    return this.searchResults.filter(r => r.type.toLowerCase() === this.selectedFilter);
+  }
+}">
+
+  <!-- Search Results Content -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Search Header -->
+        <div class="mb-8">
+          <h1 class="text-4xl font-bold italic text-slate-900 mb-4">Search Results</h1>
+          <p class="text-lg text-slate-600">Found <span x-text="filteredResults.length"></span> results for "<span x-text="searchQuery" class="font-semibold text-slate-900"></span>"</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+          <div class="flex gap-4">
+            <div class="flex-grow relative">
+              <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
+              <input type="text" x-model="searchQuery" placeholder="Search..." class="w-full pl-12 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+            </div>
+            <button class="px-6 py-3 bg-brand-700 text-white font-semibold rounded-lg hover:bg-brand-800 transition-colors">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <button @click="selectedFilter = 'all'" :class="selectedFilter === 'all' ? 'bg-brand-700 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'" class="px-4 py-2 rounded-lg font-medium transition-colors border border-slate-200">
+            All Results (<span x-text="searchResults.length"></span>)
+          </button>
+          <button @click="selectedFilter = 'program'" :class="selectedFilter === 'program' ? 'bg-brand-700 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'" class="px-4 py-2 rounded-lg font-medium transition-colors border border-slate-200">
+            Programs
+          </button>
+          <button @click="selectedFilter = 'news'" :class="selectedFilter === 'news' ? 'bg-brand-700 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'" class="px-4 py-2 rounded-lg font-medium transition-colors border border-slate-200">
+            News
+          </button>
+          <button @click="selectedFilter = 'event'" :class="selectedFilter === 'event' ? 'bg-brand-700 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'" class="px-4 py-2 rounded-lg font-medium transition-colors border border-slate-200">
+            Events
+          </button>
+          <button @click="selectedFilter = 'page'" :class="selectedFilter === 'page' ? 'bg-brand-700 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'" class="px-4 py-2 rounded-lg font-medium transition-colors border border-slate-200">
+            Pages
+          </button>
+        </div>
+
+        <!-- Results List -->
+        <div class="space-y-6">
+          <template x-for="result in filteredResults" :key="result.url">
+            <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start justify-between mb-2">
+                <span :class="{
+                  'bg-blue-100 text-blue-700': result.type === 'Program',
+                  'bg-green-100 text-green-700': result.type === 'News',
+                  'bg-purple-100 text-purple-700': result.type === 'Event',
+                  'bg-slate-100 text-slate-700': result.type === 'Page'
+                }" class="px-3 py-1 rounded-full text-xs font-semibold" x-text="result.type"></span>
+                <span class="text-sm text-slate-500" x-text="result.date"></span>
+              </div>
+              <a :href="result.url" class="group">
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-brand-700 transition-colors mb-2" x-text="result.title"></h2>
+                <p class="text-slate-600 mb-3" x-text="result.excerpt"></p>
+                <div class="flex items-center text-brand-600 group-hover:text-brand-700 font-medium text-sm">
+                  <span>Read more</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                </div>
+              </a>
+            </div>
+          </template>
+        </div>
+
+        <!-- No Results -->
+        <div x-show="filteredResults.length === 0" class="text-center py-16">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4">
+            <i data-lucide="search-x" class="w-8 h-8 text-slate-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-2">No results found</h3>
+          <p class="text-slate-600 mb-4">Try adjusting your search or filters</p>
+          <button @click="selectedFilter = 'all'" class="text-brand-600 hover:text-brand-700 font-medium">Clear filters</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>lucide.createIcons();</script>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+        <!-- About Section -->
+        <div>
+          <div class="mb-6">
+            <img src="https://richmondcc.edu/sites/default/files/footer-logo.png"
+                 alt="Richmond Community College"
+                 class="h-16 w-auto">
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Personalized, quality instruction at a manageable cost. Building brighter futures in Richmond County since 1964.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-700 rounded-lg flex items-center justify-center transition-colors">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Academic Programs
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Admissions
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Financial Aid
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Student Services
+            </a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center">
+              <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-brand-500"></i>
+              Campus Life
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div>1042 W Hamlet Ave</div>
+                <div>Hamlet, NC 28345</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="phone" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="tel:9104101700" class="hover:text-brand-400 transition-colors">
+                (910) 410-1700
+              </a>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="mail" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <a href="mailto:info@richmondcc.edu" class="hover:text-brand-400 transition-colors">
+                info@richmondcc.edu
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Campuses -->
+        <div>
+          <h3 class="text-white font-bold mb-4 text-lg">Our Campuses</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Hamlet Campus</div>
+                <div class="text-sm text-slate-400">Main Campus</div>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="building" class="w-5 h-5 mr-3 mt-0.5 text-brand-500"></i>
+              <div>
+                <div class="font-semibold text-white">Scotland County Campus</div>
+                <div class="text-sm text-slate-400">Satellite Location</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-sm text-slate-400">© 2026 Richmond Community College. All rights reserved.</p>
+        <div class="flex flex-wrap gap-6 text-sm">
+          <a href="#" class="hover:text-brand-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Accessibility</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Title IX</a>
+          <a href="#" class="hover:text-brand-400 transition-colors">Non-Discrimination</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
