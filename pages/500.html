@@ -3,60 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Dale McInnis - President | Richmond Community College</title>
-  <meta name="description" content="Learn more about Dr. Dale McInnis, President of Richmond Community College.">
-
-  <!-- Google Fonts -->
+  <title>Server Error | Richmond Community College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              50: '#fdf2f4',
-              100: '#fce7eb',
-              200: '#f9d0d8',
-              300: '#f4a8b8',
-              400: '#ed7691',
-              500: '#e24968',
-              600: '#ce2d54',
-              700: '#9C1C32',
-              800: '#8a1a2e',
-              900: '#751829',
+              50: '#fdf2f4', 100: '#fce7eb', 200: '#f9d0d8', 300: '#f4a8b8', 400: '#ed7691',
+              500: '#e24968', 600: '#ce2d54', 700: '#9C1C32', 800: '#8a1a2e', 900: '#751829',
             }
           },
-          fontFamily: {
-            'serif': ['"Crimson Text"', 'Georgia', 'serif'],
-            'sans': ['"Open Sans"', 'system-ui', 'sans-serif'],
-          },
-          maxWidth: {
-            'content': '1280px',
-          }
+          fontFamily: { 'serif': ['"Crimson Text"', 'Georgia', 'serif'], 'sans': ['"Open Sans"', 'system-ui', 'sans-serif'] },
+          maxWidth: { 'content': '1280px' }
         }
       }
     }
   </script>
-
-  <!-- Alpine.js -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', serif; }
   </style>
 </head>
-<body class="bg-slate-50" x-data>
+<body class="bg-slate-50">
 
   <!-- DEMO NAV BAR -->
   <nav class="bg-slate-900 text-white py-3 sticky top-0 z-50 shadow-lg">
@@ -93,231 +67,178 @@
             <span class="text-xs font-bold text-slate-500 uppercase">Active Pages</span>
           </div>
 
-          <a href="/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="home" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Home</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/academics/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/academics" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="book-open" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Section Front</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/academics/programs.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/programs" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="graduation-cap" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Program Listing</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/academics/program-detail.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/program-detail" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Program Detail</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/about/mission-vision.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/mission-vision" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="info" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Content Page</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/news/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/news" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="newspaper" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">News Listing</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/news/article.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/article" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="file-text" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">News Article</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/events/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/events" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="calendar" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Event Listing</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/events/detail.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/event-detail" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="ticket" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Event Detail</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/staff/directory.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/staff-directory" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="users" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Staff Directory</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/staff/profile.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/staff-profile" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="user" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Staff Profile</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/contact/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/contact" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Contact Page</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/search/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/search" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="search" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Search Results</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/landing/index.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/landing" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="rocket" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">Landing Page</span>
             <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
           </a>
 
-          <a href="/pages/error/404.html" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+          <a href="/pages/404" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
             <i data-lucide="alert-circle" class="w-4 h-4 mr-3 text-brand-500"></i>
             <span class="font-medium">404 Error Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
 
+          <a href="/pages/500" class="flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-brand-500 transition-colors">
+            <i data-lucide="alert-triangle" class="w-4 h-4 mr-3 text-brand-500"></i>
+            <span class="font-medium">500 Error Page</span>
+            <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Active</span>
+          </a>
 
+          <div class="border-t border-slate-100 my-2"></div>
 
-  <!-- Demo Nav & Header (same as directory page, shortened for brevity) -->
-  
-  <!-- Main Content -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto">
-        
-        <div class="grid lg:grid-cols-3 gap-8">
-          
-          <!-- Main Content - 2 columns -->
-          <div class="lg:col-span-2 space-y-8">
-            
-            <!-- Profile Header -->
-            <div class="bg-white rounded-xl shadow-md p-8">
-              <div class="flex flex-col md:flex-row gap-6">
-                <div class="flex-shrink-0">
-                  <img src="https://placehold.co/300x300/9C1C32/FFFFFF?text=DM" alt="Dr. Dale McInnis" class="w-48 h-48 rounded-lg object-cover">
-                </div>
-                <div class="flex-grow">
-                  <h1 class="text-4xl font-bold italic text-slate-900 mb-2">Dr. Dale McInnis</h1>
-                  <p class="text-xl text-brand-600 font-semibold mb-4">President</p>
-                  <p class="text-slate-600 mb-4">Dr. Dale McInnis has served as President of Richmond Community College since 2015, bringing over 25 years of higher education leadership experience to the role.</p>
-                  <div class="flex flex-wrap gap-3">
-                    <a href="mailto:dmcinnis@richmondcc.edu" class="inline-flex items-center px-4 py-2 bg-brand-700 text-white rounded-lg hover:bg-brand-800 transition-colors">
-                      <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
-                      Email
-                    </a>
-                    <a href="tel:9104101700" class="inline-flex items-center px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors">
-                      <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
-                      (910) 410-1700
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Biography -->
-            <div class="bg-white rounded-xl shadow-md p-8">
-              <h2 class="text-2xl font-bold italic text-slate-900 mb-4">Biography</h2>
-              <div class="prose max-w-none text-slate-600 space-y-4">
-                <p>Dr. McInnis has dedicated his career to expanding educational access and opportunity in rural communities. Under his leadership, Richmond Community College has seen significant growth in enrollment, program offerings, and community partnerships.</p>
-                <p>Prior to joining RichmondCC, Dr. McInnis served in various administrative roles at community colleges across North Carolina, including Vice President of Instruction and Dean of Academic Affairs.</p>
-                <p>Dr. McInnis is actively involved in the community, serving on numerous boards and committees focused on economic development, workforce training, and educational advancement.</p>
-              </div>
-            </div>
-
-            <!-- Education -->
-            <div class="bg-white rounded-xl shadow-md p-8">
-              <h2 class="text-2xl font-bold italic text-slate-900 mb-4">Education & Credentials</h2>
-              <ul class="space-y-4">
-                <li class="flex items-start">
-                  <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
-                  <div>
-                    <p class="font-semibold text-slate-900">Ed.D. in Higher Education Leadership</p>
-                    <p class="text-slate-600">North Carolina State University, 2008</p>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
-                  <div>
-                    <p class="font-semibold text-slate-900">M.A. in Education Administration</p>
-                    <p class="text-slate-600">University of North Carolina at Chapel Hill, 1998</p>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600 mr-3 mt-1 flex-shrink-0"></i>
-                  <div>
-                    <p class="font-semibold text-slate-900">B.A. in Political Science</p>
-                    <p class="text-slate-600">Wake Forest University, 1992</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
+          <div class="px-4 py-2 bg-slate-50 border-b border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase">Archived Pages</span>
           </div>
 
-          <!-- Sidebar - 1 column -->
-          <div class="space-y-6">
-            
-            <!-- Contact Card -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-              <h3 class="text-lg font-bold text-slate-900 mb-4">Contact Information</h3>
-              <ul class="space-y-3 text-sm">
-                <li class="flex items-start">
-                  <i data-lucide="mail" class="w-4 h-4 text-brand-600 mr-2 mt-0.5 flex-shrink-0"></i>
-                  <a href="mailto:dmcinnis@richmondcc.edu" class="text-brand-600 hover:text-brand-700">dmcinnis@richmondcc.edu</a>
-                </li>
-                <li class="flex items-start">
-                  <i data-lucide="phone" class="w-4 h-4 text-brand-600 mr-2 mt-0.5 flex-shrink-0"></i>
-                  <a href="tel:9104101700" class="text-brand-600 hover:text-brand-700">(910) 410-1700</a>
-                </li>
-                <li class="flex items-start">
-                  <i data-lucide="map-pin" class="w-4 h-4 text-brand-600 mr-2 mt-0.5 flex-shrink-0"></i>
-                  <span class="text-slate-600">Building A, Room 101</span>
-                </li>
-              </ul>
-            </div>
+          <a href="/archive/pages/about/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="info" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">About</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
 
-            <!-- Office Hours -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-              <h3 class="text-lg font-bold text-slate-900 mb-4">Office Hours</h3>
-              <ul class="space-y-2 text-sm text-slate-600">
-                <li class="flex justify-between">
-                  <span>Monday - Thursday</span>
-                  <span class="font-medium">8:00 AM - 5:00 PM</span>
-                </li>
-                <li class="flex justify-between">
-                  <span>Friday</span>
-                  <span class="font-medium">8:00 AM - 2:00 PM</span>
-                </li>
-              </ul>
-              <p class="mt-4 text-xs text-slate-500">Appointments recommended. Please call or email to schedule.</p>
-            </div>
+          <a href="/archive/pages/admissions/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="user-plus" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">Admissions</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
 
-            <!-- Department -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-              <h3 class="text-lg font-bold text-slate-900 mb-4">Department</h3>
-              <p class="text-slate-600">Administration</p>
-              <a href="/pages/staff/directory.html?dept=Administration" class="inline-flex items-center text-brand-600 hover:text-brand-700 text-sm mt-2">
-                View all Administration staff
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-              </a>
-            </div>
+          <a href="/archive/pages/student-services/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="life-buoy" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">Student Services</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
 
-          </div>
+          <a href="/archive/pages/contact/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">Contact</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
 
+          <a href="/archive/pages/contact/index.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-50 transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 mr-3 text-slate-400"></i>
+            <span class="font-medium">Contact</span>
+            <span class="ml-auto text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded-full">Archived</span>
+          </a>
         </div>
-
       </div>
+    </div>
+  </nav>
+
+  <!-- 500 Error Page -->
+  <section class="min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="max-w-2xl text-center">
+      
+      <!-- Icon -->
+      <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-100 mb-6">
+        <i data-lucide="alert-triangle" class="w-12 h-12 text-brand-700"></i>
+      </div>
+
+      <!-- Message -->
+      <h1 class="text-4xl font-bold italic text-slate-900 mb-4">Something Went Wrong</h1>
+      <p class="text-lg text-slate-600 mb-8">
+        We're experiencing technical difficulties. Our team has been notified and is working to fix the issue.
+        Please try again in a few minutes.
+      </p>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <button onclick="location.reload()" class="px-6 py-3 bg-brand-700 text-white font-semibold rounded-lg hover:bg-brand-800 transition-colors">
+          Try Again
+        </button>
+        <a href="/" class="px-6 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-colors">
+          Go to Home
+        </a>
+      </div>
+
+      <!-- Help Text -->
+      <p class="text-sm text-slate-500">
+        If the problem persists, please contact us at <a href="mailto:it@richmondcc.edu" class="text-brand-600 hover:text-brand-700 font-medium">it@richmondcc.edu</a>
+        or call <a href="tel:9104101700" class="text-brand-600 hover:text-brand-700 font-medium">(910) 410-1700</a>
+      </p>
+
     </div>
   </section>
 
-  <!-- Initialize Lucide Icons -->
   <script>lucide.createIcons();</script>
-
 
   <!-- Footer -->
   <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
