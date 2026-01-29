@@ -393,12 +393,7 @@
     </div>
   </section>
 
-  <script>lucide.createIcons();</script>
-
-  
-
-
-<!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
     <div class="container mx-auto px-4">
 
@@ -520,5 +515,16 @@
 
     </div>
   </footer>
+<!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+
+      // Reinitialize icons after Alpine.js transitions
+      document.addEventListener('alpine:initialized', () => {
+        setTimeout(() => lucide.createIcons(), 100);
+      });
+    });
+  </script>
 </body>
 </html>

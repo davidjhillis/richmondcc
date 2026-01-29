@@ -1199,5 +1199,16 @@
 
     </div>
   </footer>
+<!-- Initialize Lucide Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+
+      // Reinitialize icons after Alpine.js transitions
+      document.addEventListener('alpine:initialized', () => {
+        setTimeout(() => lucide.createIcons(), 100);
+      });
+    });
+  </script>
 </body>
 </html>
